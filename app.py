@@ -1,9 +1,5 @@
 from flask import Flask, render_template, jsonify
 from config import settings
-import sys
-
-
-# Importing the blueprints defined in views
 from views.events.routes import event_views
 from views.users.routes import user_views
 
