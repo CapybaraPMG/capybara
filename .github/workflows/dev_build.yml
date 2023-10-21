@@ -5,8 +5,8 @@ name: DEV - Build and Unittest
 
 on:
   push:
-    branches-ignore: [ main ]
-
+    branches:
+      - '*'
 jobs:
   build:
     runs-on: ubuntu-latest
