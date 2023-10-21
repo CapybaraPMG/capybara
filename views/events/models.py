@@ -9,11 +9,15 @@ class Events(db.Model):
     title = db.Column(db.String(80), nullable=False)
     description = db.Column(db.String(80), nullable=False)
     date_time = db.Column(db.String(250), nullable=False)
-    venue= db.Column(db.string(120), nullable=False)
-    price = db.Columgn(db.Integer,nullable=False)
-    is_charged=db.Column(db.Boolean, nullable=False)
+    venue = db.Column(db.String(120), nullable=False)
+    price = db.Column(db.Integer, nullable=False)
+    is_charged = db.Column(db.Boolean, nullable=False)
     poster = db.Column(db.String(250), nullable=False)
     user_id = db.Column(db.String(80), nullable=False)
     created_at = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
 
-    user= db.relationship("User", back_populates="businesses", primaryjoin="foreign(Event.user_id) == User.id")
+    user = db.relationship(
+        "User",
+        back_populates="businesses",
+        primaryjoin="foreign(Event.user_id) == User.id",
+    )
