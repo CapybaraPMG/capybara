@@ -1,5 +1,4 @@
 from flask import Flask, render_template, jsonify
-from user.routes import user_bp
 from config import settings
 import sys
 
@@ -20,8 +19,6 @@ app.register_blueprint(user_views)
 def index():
     return jsonify("Ok! ✅"),200
 
-
-app.register_blueprint(user_bp)
 
 
 @app.route("/health", methods=["GET"])
