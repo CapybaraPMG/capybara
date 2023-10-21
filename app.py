@@ -3,22 +3,21 @@ from config import settings
 import sys
 
 
-#Importing the blueprints defined in views
+# Importing the blueprints defined in views
 from views.events.routes import event_views
 from views.users.routes import user_views
 
 app = Flask(__name__)
 
 
-#Registering the blueprints
+# Registering the blueprints
 app.register_blueprint(event_views)
 app.register_blueprint(user_views)
 
 
-@app.route('/')
+@app.route("/")
 def index():
-    return jsonify("Ok! ✅"),200
-
+    return jsonify("Ok! ✅"), 200
 
 
 @app.route("/health", methods=["GET"])
