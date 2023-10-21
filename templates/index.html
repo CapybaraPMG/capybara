@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 
-{% block title %} Welcome to the home page {% endblock %}
+{% block body %}
 
-
-{% block body %} Hello world! {% endblock %}
+<a href={{ url_for('event_views.get_all_events') }}>All events</a> </br>
+<a href={{ url_for('user_views.get_all_users') }}>All users</a>
+{% endblock %}
