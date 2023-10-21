@@ -3,6 +3,7 @@ from functools import lru_cache
 
 load_dotenv(".env")
 
+
 class Settings:
     APP_NAME: str = ""
     PORT: str = "8000"
@@ -26,5 +27,6 @@ class Settings:
 @lru_cache()
 def get_settings():
     return Settings()
+
 
 settings = get_settings()

@@ -12,6 +12,6 @@ setup(
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/CapybaraPMG/capybara",
-    python_requires='>=3.6',
+    python_requires=">=3.6",
     packages=find_packages(),
 )
