@@ -1,5 +1,7 @@
-from flask import Flask
-from flask import render_template
+from flask import Flask, render_template, jsonify
+from user.routes import user_bp
+from config import settings
+import sys
 
 
 #Importing the blueprints defined in views
@@ -16,9 +18,17 @@ app.register_blueprint(user_views)
 
 @app.route('/')
 def index():
-    return render_template("index.html")
+    return jsonify("Ok! ✅"),200
 
 
+app.register_blueprint(user_bp)
 
-if __name__ == '__main__':
-    app.run(debug=True)
+
+@app.route("/health", methods=["GET"])
+def health_check():
+    api_health = {"status": "Ok!", "message": "API is up and running"}
+    return jsonify(api_health), 200
+
+
+if __name__ == "__main__":
+    app.run(host='0.0.0.0', port=int(settings.PORT), debug=True)
