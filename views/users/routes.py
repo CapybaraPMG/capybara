@@ -30,12 +30,8 @@ async def get_all_users():
             return jsonify(EmailNotFoundError().to_dict()), 400
         if not photo:
             return jsonify(PictureNotFoundError().to_dict()), 400
-        user = {
-            "username": username,
-            "email":email,
-            "photo":photo
-        }
-        await save_user_to_db(db,user)
+        user = {"username": username, "email": email, "photo": photo}
+        await save_user_to_db(db, user)
         return jsonify(SaveUserSuccessfull().to_dict), 201
     except Exception as error:
         # TODO: A better way to handle these errors

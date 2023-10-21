@@ -41,4 +41,3 @@ class APIError(BaseAPIError):
 
     status_code = 500
     message = "An error occured while processing your request, please try again later"
-
